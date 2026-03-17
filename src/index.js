@@ -24,6 +24,7 @@ import {
 } from './usb-cli.js';
 import { onUsbImportConfigButtonClick } from './usb-import-config.js';
 import { onUsbExportConfigButtonClick } from './usb-export-config.js';
+import { FW_VERSION } from './version.js';
 
 import {CONNECTION_ALERT, AT3_LIMITATIONS, API_ALERT} from './abw.js';
 
@@ -42,33 +43,35 @@ window.onload = async () => {
 
     window.name="beehive";
 
-    const version_select = document.getElementById("version-select");
-    const currentVersion = version_select.dataset.currentVersion;
-    try {
-        const res = await fetch("/beehive/versions.json", { cache: "no-cache" });
-        if (!res.ok) throw new Error("Failed to load versions.json");
+    document.getElementById('version-label').textContent = FW_VERSION;
 
-        const versions = await res.json();
+    // const version_select = document.getElementById("version-select");
+    // const currentVersion = version_select.dataset.currentVersion;
+    // try {
+    //     const res = await fetch("/beehive/versions.json", { cache: "no-cache" });
+    //     if (!res.ok) throw new Error("Failed to load versions.json");
 
-        versions.forEach(v => {
-        const option = document.createElement("option");
-        option.value = v.url;
-        option.textContent = v.label;
-        if (v.id === currentVersion) {
-            option.selected = true;
-        }
-        version_select.appendChild(option);
-        });
+    //     const versions = await res.json();
 
-        version_select.addEventListener("change", (e) => {
-        const url = e.target.value;
-        if (url) {
-            window.location.href = url;
-        }
-        });
-    } catch (err) {
-        console.error("Error loading versions:", err);
-    }
+    //     versions.forEach(v => {
+    //     const option = document.createElement("option");
+    //     option.value = v.url;
+    //     option.textContent = v.label;
+    //     if (v.id === currentVersion) {
+    //         option.selected = true;
+    //     }
+    //     version_select.appendChild(option);
+    //     });
+
+    //     version_select.addEventListener("change", (e) => {
+    //     const url = e.target.value;
+    //     if (url) {
+    //         window.location.href = url;
+    //     }
+    //     });
+    // } catch (err) {
+    //     console.error("Error loading versions:", err);
+    // }
     
     if (isWebBluetoothEnabled()) {
 

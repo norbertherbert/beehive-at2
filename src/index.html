@@ -30,11 +30,12 @@
     <body><div id="main">
 
         <div id= "beehive_logo">
-            <span style="font-size: 16px; font-weight: bold;">BeeHive <i>- for</i></span>
+            <span style="font-size: 16px; font-weight: bold;">BeeHive</span>
 
-            <div class="custom-select">
+            <!-- <div class="custom-select">
                 <select id="version-select" data-current-version="AT3v1.3"></select>
-            </div>
+            </div> -->
+            - for <span id="version-label"></span>
 
             &nbsp;
             <img src="./images/android-chrome-192x192.png" height=35px;>
@@ -53,7 +54,7 @@
                 <button id="usb_connect_device_button">Connect a USB Device</button>
                 <button id="usb_disconnect_device_button" style="display:none;">Disconnnect Device</button>
                 <a id="beequeen_link" 
-                    href="https://nano-things.net/beequeen/AT3v1.3" 
+                    href="https://nano-things.net/beequeen-at2" 
                     target = "_blank"
                     style="margin-left: 8px; text-decoration: none; font-size: small;">
                     <img src="./images/beequeen.png" height=25px style="position: relative; top: 7px;">
@@ -111,7 +112,7 @@
                 <span class="modal-close">&times;</span>
                 <h3>Tilt Angles:</h3>
                 <div id="tilt_angles_div"></div>
-                <img id="tilt_angles_img" src="" height="200px"\>
+                <img id="tilt_angles_img" src="" height="200px">
             </div>     
         </div>
 
@@ -178,8 +179,7 @@
 
         </script>
 
-        <script type="module" src="./main.js"></script>
+        <script type="module" src="./index.js"></script>
 
-    </div id="main"></body>
-
+    </div></body>
 </html>
